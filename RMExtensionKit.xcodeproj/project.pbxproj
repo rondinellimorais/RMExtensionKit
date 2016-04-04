@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		185AABDE1CB2D1AB006BE577 /* RMExtensionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 185AABDD1CB2D1AB006BE577 /* RMExtensionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		185AABEF1CB2D409006BE577 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABEB1CB2D409006BE577 /* NSDate.swift */; };
+		185AABF01CB2D409006BE577 /* NSURLConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABEC1CB2D409006BE577 /* NSURLConnection.swift */; };
+		185AABF11CB2D409006BE577 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABED1CB2D409006BE577 /* String.swift */; };
+		185AABF21CB2D409006BE577 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABEE1CB2D409006BE577 /* UIImage.swift */; };
+		185AABF41CB2D42C006BE577 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABF31CB2D42C006BE577 /* UIColor.swift */; };
+		185AABF91CB2D775006BE577 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185AABF81CB2D775006BE577 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		185AABDA1CB2D1AB006BE577 /* RMExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RMExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185AABDD1CB2D1AB006BE577 /* RMExtensionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMExtensionKit.h; sourceTree = "<group>"; };
 		185AABDF1CB2D1AB006BE577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		185AABEB1CB2D409006BE577 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
+		185AABEC1CB2D409006BE577 /* NSURLConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLConnection.swift; sourceTree = "<group>"; };
+		185AABED1CB2D409006BE577 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		185AABEE1CB2D409006BE577 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		185AABF31CB2D42C006BE577 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		185AABF81CB2D775006BE577 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185AABF91CB2D775006BE577 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,9 +60,23 @@
 			isa = PBXGroup;
 			children = (
 				185AABDD1CB2D1AB006BE577 /* RMExtensionKit.h */,
+				185AABF31CB2D42C006BE577 /* UIColor.swift */,
+				185AABEB1CB2D409006BE577 /* NSDate.swift */,
+				185AABEC1CB2D409006BE577 /* NSURLConnection.swift */,
+				185AABED1CB2D409006BE577 /* String.swift */,
+				185AABEE1CB2D409006BE577 /* UIImage.swift */,
+				185AABF71CB2D74F006BE577 /* Frameworks */,
 				185AABDF1CB2D1AB006BE577 /* Info.plist */,
 			);
 			path = RMExtensionKit;
+			sourceTree = "<group>";
+		};
+		185AABF71CB2D74F006BE577 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				185AABF81CB2D775006BE577 /* SystemConfiguration.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185AABF11CB2D409006BE577 /* String.swift in Sources */,
+				185AABF21CB2D409006BE577 /* UIImage.swift in Sources */,
+				185AABF01CB2D409006BE577 /* NSURLConnection.swift in Sources */,
+				185AABEF1CB2D409006BE577 /* NSDate.swift in Sources */,
+				185AABF41CB2D42C006BE577 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +260,7 @@
 		185AABE31CB2D1AB006BE577 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -239,12 +272,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rondinellimorais.RMExtensionKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		185AABE41CB2D1AB006BE577 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -278,6 +313,7 @@
 				185AABE41CB2D1AB006BE577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
