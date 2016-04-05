@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     
-    convenience init(r: Float, g: Float, b: Float, a:Float) {
+    public convenience init(r: Float, g: Float, b: Float, a:Float) {
         assert(r >= 0.0 && r <= 255.0, "Invalid red component")
         assert(g >= 0.0 && g <= 255.0, "Invalid green component")
         assert(b >= 0.0 && b <= 255.0, "Invalid blue component")
@@ -18,11 +18,11 @@ extension UIColor {
         self.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: 1.0)
     }
     
-    convenience init(r: Float, g: Float, b: Float) {
+    public convenience init(r: Float, g: Float, b: Float) {
         self.init(r:r, g: g, b: b, a: 1.0)
     }
     
-    convenience init(hex:Int) {
+    public convenience init(hex:Int) {
         let components = (
             R: CGFloat((hex >> 16) & 0xff) / 255,
             G: CGFloat((hex >> 08) & 0xff) / 255,
@@ -31,7 +31,7 @@ extension UIColor {
         self.init(r:Float(components.R), g: Float(components.G), b: Float(components.B), a: 1.0)
     }
     
-    class public func random() -> UIColor {
+    public class func random() -> UIColor {
         return UIColor(red: CGFloat(arc4random_uniform(100)) / 255.0,
             green: CGFloat(arc4random_uniform(100)) / 255.0,
             blue: CGFloat(arc4random_uniform(100)) / 255.0,

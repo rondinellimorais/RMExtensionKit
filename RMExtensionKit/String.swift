@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     
-    public static var empty:String { get{return "" }}
+    public static var empty:String { get { return "" }}
     
     public func allowCharacters(characteres:String) -> String {
         let invertedSet = NSCharacterSet(charactersInString: characteres).invertedSet
