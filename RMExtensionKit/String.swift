@@ -11,9 +11,14 @@ import UIKit
 extension String {
     
     public static var empty:String { get { return "" }}
+    public var length:Int { get { return self.characters.count }}
     
     public func allowCharacters(characteres:String) -> String {
         let invertedSet = NSCharacterSet(charactersInString: characteres).invertedSet
         return self.componentsSeparatedByCharactersInSet(invertedSet).joinWithSeparator(String.empty)
+    }
+    
+    public func trunc(length:Int) -> String {
+        return NSString(string: self).substringToIndex( min(length, self.characters.count) )
     }
 }
