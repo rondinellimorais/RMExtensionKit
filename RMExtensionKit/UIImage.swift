@@ -34,7 +34,12 @@ extension UIImage {
         return scaledImage
     }
     
-    public func save(path:String) -> Bool {
+    public func save(path:String) throws -> Bool {
+        
+        let URL = NSURL(string: path)
+        let fullPathFile = NSString(string: URL!.path!).stringByDeletingLastPathComponent
+        
+        try! NSFileManager.defaultManager().createDirectoryAtPath(fullPathFile, withIntermediateDirectories:true, attributes: nil)
         let fileManager = NSFileManager()
         let data = UIImageJPEGRepresentation(self, UIScreen.mainScreen().scale)
         return fileManager.createFileAtPath(path, contents: data, attributes: nil)
