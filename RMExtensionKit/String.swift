@@ -21,4 +21,26 @@ extension String {
     public func trunc(length:Int) -> String {
         return NSString(string: self).substringToIndex( min(length, self.characters.count) )
     }
+    
+    public func toArray() -> [Character]? {
+        var characters:[Character] = []
+        for c in self.characters {
+            characters.append(c)
+        }
+        return characters
+    }
+    
+    public func substring(start start:Int, end:Int) -> String {
+        let chars = self.toArray()!
+        let result:NSMutableString = NSMutableString()
+        var endIndex = end
+        if endIndex < 0 { endIndex = chars.count }
+        
+        for (i, c) in chars.enumerate() {
+            if i >= start && i < endIndex {
+                result.appendString(String(c))
+            }
+        }
+        return result as String!
+    }
 }
