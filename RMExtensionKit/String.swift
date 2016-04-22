@@ -43,4 +43,19 @@ extension String {
         }
         return result as String!
     }
+    
+    public func test(regex: String!) -> Bool {
+        let expression = try! NSRegularExpression(pattern:regex, options: [.CaseInsensitive])
+        return expression.firstMatchInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, characters.count)) != nil
+    }
+    
+    // test: print( "08/10/1987 e rondinelli 22/04/2016 morais 1/4/2015".matchesForRegex("\\d{1,2}\\/\\d{1,2}\\/\\d{1,4}") )
+    // options: Global, no-literal, case insensitive
+    public func matchesForRegex(regex: String!, options:NSRegularExpressionOptions? = NSRegularExpressionOptions.CaseInsensitive) -> [String] {
+        let expression = try! NSRegularExpression(pattern: regex, options: options!)
+        let results = expression.matchesInString(self as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.length))
+        return results.map() {
+            (self as NSString).substringWithRange($0.range)
+        }
+    }
 }
