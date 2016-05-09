@@ -93,9 +93,12 @@ extension NSDate {
         return Int64(self.timeIntervalSince1970 * 1000)
     }
     
-    public func toString(dateFormatter:String) -> String {
+    /**
+     * 
+     */
+    public override func toString(dateFormatter: AnyObject?) -> String {
         let dateStringFormatter = NSDateFormatter()
-        dateStringFormatter.dateFormat = dateFormatter
+        dateStringFormatter.dateFormat = dateFormatter as! String
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return dateStringFormatter.stringFromDate(self)
     }
