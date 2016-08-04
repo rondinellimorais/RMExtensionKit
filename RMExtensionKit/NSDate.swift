@@ -24,8 +24,14 @@ public enum NSDateCompare : Int {
 
 extension NSDate {
     
-    // MARK: Public
+    /*  */
+    var isToday:Bool {
+        get {
+            return NSCalendar.currentCalendar().isDateInToday(self)
+        }
+    }
     
+
    /**
     *  Add seconds to date
     *
@@ -89,6 +95,9 @@ extension NSDate {
         return addTime(year:year, month:0, hour:0, minute:0, second:0)
     }
     
+    /**
+     *
+     */
     public func timeInterval() -> Int64 {
         return Int64(self.timeIntervalSince1970 * 1000)
     }
@@ -126,8 +135,66 @@ extension NSDate {
         return NSDateCompare.Undefined
     }
     
-    // MARK: Initialize
+    /**
+     *  Return a list of months base on current month
+     *
+     *  @param numberOfMonth  Number of months, when negative number is specified, the list is descending
+     *
+     *  @return list of strings
+     */
+    public func months(numberOfMonth:Int) -> [String] {
+        
+        let dateFormatter: NSDateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "pt_BR")
+        let months = dateFormatter.standaloneMonthSymbols
+        let calendar = NSCalendar.currentCalendar()
+        let components:NSDateComponents = calendar.components([.Month], fromDate: self)
+        let start = components.month
+        var end = 0
+        var returnMonths:[String] = []
+        var currentMonth = components.month
+        
+        // descending
+        if numberOfMonth < 0 {
+            end = (components.month + (numberOfMonth + 1) )
+            for _ in end ... start {
+                returnMonths.append( months[currentMonth - 1].uppercaseString )
+                if currentMonth == 1 { currentMonth = 12 } else { currentMonth -= 1 }
+            }
+        }
+        
+        // ascending
+        if numberOfMonth > 0 {
+            end = (components.month + (numberOfMonth - 1) )
+            for _ in start ... end {
+                returnMonths.append( months[currentMonth - 1].uppercaseString )
+                if currentMonth == 12 { currentMonth = 1 } else { currentMonth += 1 }
+            }
+        }
+        
+        // when is empty
+        if returnMonths.isEmpty {
+            returnMonths.append(months[components.month])
+        }
+        
+        return returnMonths
+    }
     
+    /**
+     *
+     */
+    public func differecesDay(anotherDate:NSDate) -> Int {
+
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let date1 = calendar.startOfDayForDate(self)
+        let date2 = calendar.startOfDayForDate(anotherDate)
+        let components = calendar.components(NSCalendarUnit.Day, fromDate: date1, toDate: date2, options: [])
+        return components.day
+    }
+    
+    // ==================================================================
+    // MARK: Initialize
+    // ==================================================================
    /**
     *  Create `NSDate` base on time interval
     *
