@@ -49,6 +49,18 @@ extension String {
         return expression.firstMatchInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, characters.count)) != nil
     }
     
+    public func encodeURIComponent() -> String? {
+        let characterSet = NSMutableCharacterSet.alphanumericCharacterSet()
+        characterSet.addCharactersInString("-_.!~*'()")
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
+    }
+    
+    public func replace(pattern:String, newValue:String, options:NSRegularExpressionOptions? = NSRegularExpressionOptions.CaseInsensitive) -> String? {
+        let regex = try! NSRegularExpression(pattern: pattern, options: options!)
+        let range = NSMakeRange(0, self.characters.count)
+        return regex.stringByReplacingMatchesInString(self, options: [], range: range, withTemplate: newValue)
+    }
+    
     // test: print( "08/10/1987 e rondinelli 22/04/2016 morais 1/4/2015".matchesForRegex("\\d{1,2}\\/\\d{1,2}\\/\\d{1,4}") )
     // options: Global, no-literal, case insensitive
     public func matchesForRegex(regex: String!, options:NSRegularExpressionOptions? = NSRegularExpressionOptions.CaseInsensitive) -> [String] {
