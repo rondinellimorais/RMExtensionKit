@@ -13,8 +13,8 @@ public class ImageDownload: NSObject {
     // MARK: Properties
     public class var cacheDirectory:String {
         get {
-            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-            return "\(paths.first!)/Images"
+            let path = NSString(string: NSHomeDirectory()).stringByAppendingPathComponent("/Library/Caches/Images")
+            return path
         }
     }
     
