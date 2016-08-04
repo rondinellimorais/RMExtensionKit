@@ -25,6 +25,41 @@ extension UIImage {
         return normalizedImage;
     }
     
+    public func crop(size:CGSize) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(CGImage: self.CGImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = CGFloat(size.width)
+        var cgheight: CGFloat = CGFloat(size.height)
+        
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+        
+        let rect: CGRect = CGRectMake(posX, posY, cgwidth, cgheight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImageRef = CGImageCreateWithImageInRect(contextImage.CGImage, rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(CGImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+        
+        return image
+    }
+    
     public func resize(size:CGSize) -> UIImage {
         let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
         UIGraphicsBeginImageContextWithOptions(size, true, scale)
