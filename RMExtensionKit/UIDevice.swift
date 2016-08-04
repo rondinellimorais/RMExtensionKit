@@ -2,20 +2,27 @@
 //  UIDevice.swift
 //  RMExtensionKit
 //
-//  Created by Rondinelli Morais on 20/04/16.
+//  Created by Rondinelli Morais on 08/06/16.
 //  Copyright © 2016 Rondinelli Morais. All rights reserved.
 //
 
 import UIKit
 
-extension UIApplication {
-    
-    public func call(phoneNumber:String, showPrompt:Bool? = true) {
-        
-        if showPrompt! {
-            self.openURL(NSURL(string: "telprompt://\(phoneNumber)")!)
-            return
+extension UIDevice {
+
+    public func deviceRemainingFreeSpaceInBytes() -> Int64? {
+        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        var attributes: [String: AnyObject]
+        do {
+            attributes = try NSFileManager.defaultManager().attributesOfFileSystemForPath(documentDirectoryPath.last! as String)
+            let freeSize = attributes[NSFileSystemFreeSize] as? NSNumber
+            if (freeSize != nil) {
+                return freeSize?.longLongValue
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
         }
-        self.openURL(NSURL(string: "tel://\(phoneNumber)")!)
     }
 }
