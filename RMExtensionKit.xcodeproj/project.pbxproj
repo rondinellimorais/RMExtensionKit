@@ -10,7 +10,7 @@
 		180160691CB837B2001B1055 /* ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180160681CB837B2001B1055 /* ImageDownload.swift */; };
 		18020B0D1CD111AC00FDF2DE /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020B0C1CD111AC00FDF2DE /* UIStoryboard.swift */; };
 		184D8AE41CB83DEB00CFBCA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184D8AE31CB83DEB00CFBCA8 /* UIKit.framework */; };
-		1852181F1CC8187000728841 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852181E1CC8187000728841 /* UIDevice.swift */; };
+		1852181F1CC8187000728841 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852181E1CC8187000728841 /* UIApplication.swift */; };
 		1859467B1CB6DCE300BBAD0F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859467A1CB6DCE300BBAD0F /* UIView.swift */; };
 		185AABDE1CB2D1AB006BE577 /* RMExtensionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 185AABDD1CB2D1AB006BE577 /* RMExtensionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		185AABEF1CB2D409006BE577 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABEB1CB2D409006BE577 /* NSDate.swift */; };
@@ -19,16 +19,18 @@
 		185AABF21CB2D409006BE577 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABEE1CB2D409006BE577 /* UIImage.swift */; };
 		185AABF41CB2D42C006BE577 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185AABF31CB2D42C006BE577 /* UIColor.swift */; };
 		185AABF91CB2D775006BE577 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185AABF81CB2D775006BE577 /* SystemConfiguration.framework */; };
+		185F56C31CE4CBFB00D8244D /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F56C21CE4CBFB00D8244D /* NSURL.swift */; };
 		18832FF21CB86A4400616215 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18832FF11CB86A4400616215 /* UIImageView.swift */; };
 		18A012C81CC8018B00C94436 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A012C71CC8018B00C94436 /* UIButton.swift */; };
 		18C382DF1CDCDBF000ABC15A /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C382DE1CDCDBF000ABC15A /* NSObject.swift */; };
+		18D267C31D0864BA003CAFF8 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D267C21D0864BA003CAFF8 /* UIDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		180160681CB837B2001B1055 /* ImageDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownload.swift; sourceTree = "<group>"; };
 		18020B0C1CD111AC00FDF2DE /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		184D8AE31CB83DEB00CFBCA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1852181E1CC8187000728841 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		1852181E1CC8187000728841 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		1859467A1CB6DCE300BBAD0F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		185AABDA1CB2D1AB006BE577 /* RMExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RMExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185AABDD1CB2D1AB006BE577 /* RMExtensionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMExtensionKit.h; sourceTree = "<group>"; };
@@ -39,9 +41,11 @@
 		185AABEE1CB2D409006BE577 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		185AABF31CB2D42C006BE577 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		185AABF81CB2D775006BE577 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		185F56C21CE4CBFB00D8244D /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		18832FF11CB86A4400616215 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		18A012C71CC8018B00C94436 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		18C382DE1CDCDBF000ABC15A /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		18D267C21D0864BA003CAFF8 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				185AABED1CB2D409006BE577 /* String.swift */,
 				180160681CB837B2001B1055 /* ImageDownload.swift */,
 				18C382DE1CDCDBF000ABC15A /* NSObject.swift */,
+				185F56C21CE4CBFB00D8244D /* NSURL.swift */,
 				185AABDF1CB2D1AB006BE577 /* Info.plist */,
 				185AABF71CB2D74F006BE577 /* Frameworks */,
 			);
@@ -106,8 +111,9 @@
 				1859467A1CB6DCE300BBAD0F /* UIView.swift */,
 				18832FF11CB86A4400616215 /* UIImageView.swift */,
 				18A012C71CC8018B00C94436 /* UIButton.swift */,
-				1852181E1CC8187000728841 /* UIDevice.swift */,
+				1852181E1CC8187000728841 /* UIApplication.swift */,
 				18020B0C1CD111AC00FDF2DE /* UIStoryboard.swift */,
+				18D267C21D0864BA003CAFF8 /* UIDevice.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -193,15 +199,17 @@
 				18020B0D1CD111AC00FDF2DE /* UIStoryboard.swift in Sources */,
 				18832FF21CB86A4400616215 /* UIImageView.swift in Sources */,
 				185AABF11CB2D409006BE577 /* String.swift in Sources */,
+				185F56C31CE4CBFB00D8244D /* NSURL.swift in Sources */,
 				185AABF21CB2D409006BE577 /* UIImage.swift in Sources */,
 				185AABF01CB2D409006BE577 /* NSURLConnection.swift in Sources */,
 				180160691CB837B2001B1055 /* ImageDownload.swift in Sources */,
-				1852181F1CC8187000728841 /* UIDevice.swift in Sources */,
+				1852181F1CC8187000728841 /* UIApplication.swift in Sources */,
 				185AABEF1CB2D409006BE577 /* NSDate.swift in Sources */,
 				1859467B1CB6DCE300BBAD0F /* UIView.swift in Sources */,
 				18C382DF1CDCDBF000ABC15A /* NSObject.swift in Sources */,
 				185AABF41CB2D42C006BE577 /* UIColor.swift in Sources */,
 				18A012C81CC8018B00C94436 /* UIButton.swift in Sources */,
+				18D267C31D0864BA003CAFF8 /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
