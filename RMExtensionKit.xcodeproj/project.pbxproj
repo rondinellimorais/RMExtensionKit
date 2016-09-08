@@ -22,6 +22,7 @@
 		185F56C31CE4CBFB00D8244D /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F56C21CE4CBFB00D8244D /* NSURL.swift */; };
 		18832FF21CB86A4400616215 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18832FF11CB86A4400616215 /* UIImageView.swift */; };
 		18A012C81CC8018B00C94436 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A012C71CC8018B00C94436 /* UIButton.swift */; };
+		18B749EC1D81DAF90014D173 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B749EB1D81DAF90014D173 /* UITableView.swift */; };
 		18C382DF1CDCDBF000ABC15A /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C382DE1CDCDBF000ABC15A /* NSObject.swift */; };
 		18D267C31D0864BA003CAFF8 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D267C21D0864BA003CAFF8 /* UIDevice.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		185F56C21CE4CBFB00D8244D /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		18832FF11CB86A4400616215 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		18A012C71CC8018B00C94436 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		18B749EB1D81DAF90014D173 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		18C382DE1CDCDBF000ABC15A /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		18D267C21D0864BA003CAFF8 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 				1852181E1CC8187000728841 /* UIApplication.swift */,
 				18020B0C1CD111AC00FDF2DE /* UIStoryboard.swift */,
 				18D267C21D0864BA003CAFF8 /* UIDevice.swift */,
+				18B749EB1D81DAF90014D173 /* UITableView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			files = (
 				18020B0D1CD111AC00FDF2DE /* UIStoryboard.swift in Sources */,
 				18832FF21CB86A4400616215 /* UIImageView.swift in Sources */,
+				18B749EC1D81DAF90014D173 /* UITableView.swift in Sources */,
 				185AABF11CB2D409006BE577 /* String.swift in Sources */,
 				185F56C31CE4CBFB00D8244D /* NSURL.swift in Sources */,
 				185AABF21CB2D409006BE577 /* UIImage.swift in Sources */,
