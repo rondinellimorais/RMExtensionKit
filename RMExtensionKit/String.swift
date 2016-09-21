@@ -55,6 +55,18 @@ extension String {
         return self.stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
     }
     
+    public func toHTML() -> NSAttributedString? {
+        do {
+            
+            let attrStr = try NSAttributedString(
+                data: self.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                documentAttributes: nil)
+            return attrStr
+        } catch {}
+        return nil
+    }
+    
     public func replace(pattern:String, newValue:String, options:NSRegularExpressionOptions? = NSRegularExpressionOptions.CaseInsensitive) -> String? {
         let regex = try! NSRegularExpression(pattern: pattern, options: options!)
         let range = NSMakeRange(0, self.characters.count)
