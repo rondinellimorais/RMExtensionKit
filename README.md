@@ -10,9 +10,9 @@ RMExtesionKit é estrutura simples que contém os métodos de extensão que simp
 Here are some classes that contains several useful extensions:
 
 - String
-	..* Properties
-		...* empty
-		...* length
+	+ Properties
+		* empty
+		* length
 
 	+ Methods
 		* toArray
