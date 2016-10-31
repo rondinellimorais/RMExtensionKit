@@ -24,17 +24,17 @@ Here are some classes that contains several useful extensions:
 		* toDictionary
 		* anymore...
 
-- UITableView
+- #### UITableView
 	+ methods
 		* rowHeight (base on cell identifier)
 
-- UIView
+- #### UIView
 	+ methods
 		* showBorder
 		* toImage
 		* loadNibView
 
-- NSDate
+- #### NSDate
 	+ properties
 		* isToday
 
