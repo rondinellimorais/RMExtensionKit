@@ -6,6 +6,45 @@
 [![Platform](https://img.shields.io/cocoapods/p/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
 
 ## Overview
+RMExtesionKit é estrutura simples que contém os métodos de extensão que simplifica o uso de classes de cacau iOS / OSX.
+Here are some classes that contains several useful extensions:
+
+- String
+	..* Properties
+		...* empty
+		...* length
+
+	+ Methods
+		* toArray
+		* substring
+		* test (regex)
+		* encodeURIComponent
+		* toHTML
+		* toDictionary
+		* anymore...
+
+- UITableView
+	+ methods
+		* rowHeight (base on cell identifier)
+
+- UIView
+	+ methods
+		* showBorder
+		* toImage
+		* loadNibView
+
+- NSDate
+	+ properties
+		* isToday
+
+	+ methods
+		* addSeconds
+		* addHours
+		* timeInterval
+		* compareTo
+		* differecesDay (in days)
+		* init(year, month, day, hour, minute, second)
+		* anymore...
 
 ## CocoaPods
 
