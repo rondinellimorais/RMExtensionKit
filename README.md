@@ -1,6 +1,6 @@
 # RMExtensionKit
 
-[![CI Status](https://camo.githubusercontent.com/8899865b0bce40080ab90f15316efad88689d893/68747470733a2f2f7472617669732d63692e6f72672f41464e6574776f726b696e672f41464e6574776f726b696e672e737667)]
+![CI Status](https://camo.githubusercontent.com/8899865b0bce40080ab90f15316efad88689d893/68747470733a2f2f7472617669732d63692e6f72672f41464e6574776f726b696e672f41464e6574776f726b696e672e737667)
 [![Version](https://img.shields.io/cocoapods/v/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
 [![License](https://img.shields.io/cocoapods/l/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
 [![Platform](https://img.shields.io/cocoapods/p/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
