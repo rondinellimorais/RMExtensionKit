@@ -29,7 +29,75 @@ pod 'RMExtensionKit'
 end
 ```
 
-## Usage
+## Usage Extensions
+
+#### NSDate
+
+Create simple date
+```swift
+let birthDate = NSDate(year: 1987, month: 09, day: 08)
+print(birthDate)
+```
+
+Get time internal
+```swift
+let now = NSDate()
+print(birthDate.timeInterval())
+```
+Date format
+```swift
+let birthDate = NSDate(year: 1987, month: 10, day: 08)
+print(birthDate.toString("yyyy/MM/dd"))
+```
+
+#### NSURLConnection
+
+Check if internet is connected
+```swift
+if NSURLConnection.isConnectedToNetwork() {
+  print("Yes! Connected!")
+}
+```
+
+#### String
+
+JSON String to dictionary
+```javascript
+{
+  "array": [
+    1,
+    2,
+    3
+  ],
+  "boolean": true,
+  "null": null,
+  "number": 123,
+  "object": {
+    "a": "b",
+    "c": "d",
+    "e": "f"
+  },
+  "string": "Hello World"
+}
+```
+
+```swift
+let JSONString = "{\"array\":[1,2,3],\"boolean\":true,\"null\":null,\"number\":123,\"object\":{\"a\":\"b\",\"c\":\"d\",\"e\":\"f\"},\"string\":\"Hello World\"}"
+        print( JSONString.toDictionary() )
+```
+
+Bind HTML text
+```swift
+let htmlString = "<span style='color:red'>Hello world!</span><br/><span>This is a simple HTML text. This is <b>bold!</b></span>"
+self.htmlTextLabel.attributedText = htmlString.toHTML()
+```
+
+Replace with regex
+```swift
+print("My password is: 12345678".replace("\\d", newValue: "*") )
+```
+
+See documentations for anymore!
 
 ## Author
 
