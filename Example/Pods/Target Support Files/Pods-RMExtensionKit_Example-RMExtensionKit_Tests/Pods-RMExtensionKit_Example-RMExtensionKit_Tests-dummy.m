@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_RMExtensionKit_Example_RMExtensionKit_Tests : NSObject
+@end
+@implementation PodsDummy_Pods_RMExtensionKit_Example_RMExtensionKit_Tests
+@end

@@ -1,0 +1,14 @@
+PODS:
+  - RMExtensionKit (1.0.0)
+
+DEPENDENCIES:
+  - RMExtensionKit (from `../`)
+
+EXTERNAL SOURCES:
+  RMExtensionKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  RMExtensionKit: 9590258facdaee38a16c394dcf84ce36e2f33ba3
+
+COCOAPODS: 0.39.0

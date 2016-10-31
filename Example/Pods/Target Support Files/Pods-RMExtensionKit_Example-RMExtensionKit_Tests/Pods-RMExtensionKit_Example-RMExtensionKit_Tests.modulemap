@@ -1,0 +1,6 @@
+framework module Pods_RMExtensionKit_Example_RMExtensionKit_Tests {
+  umbrella header "Pods-RMExtensionKit_Example-RMExtensionKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
