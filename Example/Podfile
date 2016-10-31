@@ -4,8 +4,6 @@ target 'RMExtensionKit_Example' do
   pod 'RMExtensionKit', :path => '../'
 
   target 'RMExtensionKit_Tests' do
-    inherit! :search_paths
-
-    
+    pod 'RMExtensionKit', :path => '../'
   end
 end

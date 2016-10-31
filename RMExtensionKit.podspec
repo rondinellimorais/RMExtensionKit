@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RMExtensionKit'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of RMExtensionKit.'
+  s.version          = '1.0.0'
+  s.summary          = 'Extension methods which simplifies the use of Cocoa classes iOS / OSX.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,20 +18,20 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+The RMExtensionKit is simple framework that contains any extension methods which simplifies the use of Cocoa classes iOS / OSX.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/RMExtensionKit'
+  s.homepage         = 'https://github.com/rondinellimorais/RMExtensionKit.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Rondinelli Morais' => 'rondinele.morais@portoseguro.com.br' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/RMExtensionKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Rondinelli Morais' => 'rondinellimorais@gmail.com' }
+  s.source           = { :git => 'https://github.com/rondinellimorais/RMExtensionKit.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/rondmorais'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'RMExtensionKit/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'RMExtensionKit' => ['RMExtensionKit/Assets/*.png']
   # }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RMExtensionKit
 
 class ViewController: UIViewController {
 
