@@ -10,7 +10,7 @@ RMExtesionKit é estrutura simples que contém os métodos de extensão que simp
 
 Here are some classes that contains several useful extensions:
 
-- String
+- #### String
 	+ Properties
 		* empty
 		* length
@@ -18,42 +18,34 @@ Here are some classes that contains several useful extensions:
 	+ Methods
 		* toArray
 		* substring
-- String
-+ Properties
-* empty
-* length
-
-+ Methods
-* toArray
-* substring
-* test (regex)
-* encodeURIComponent
-* toHTML
-* toDictionary
-* anymore...
+		* test (regex)
+		* encodeURIComponent
+		* toHTML
+		* toDictionary
+		* anymore...
 
 - UITableView
-+ methods
-* rowHeight (base on cell identifier)
+	+ methods
+		* rowHeight (base on cell identifier)
 
 - UIView
-+ methods
-* showBorder
-* toImage
-* loadNibView
+	+ methods
+		* showBorder
+		* toImage
+		* loadNibView
 
 - NSDate
-+ properties
-* isToday
+	+ properties
+		* isToday
 
-+ methods
-* addSeconds
-* addHours
-* timeInterval
-* compareTo
-* differecesDay (in days)
-* init(year, month, day, hour, minute, second)
-* anymore...
+	+ methods
+		* addSeconds
+		* addHours
+		* timeInterval
+		* compareTo
+		* differecesDay (in days)
+		* init(year, month, day, hour, minute, second)
+		* anymore...
 
 ## CocoaPods
 
