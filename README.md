@@ -22,7 +22,7 @@ pod "RMExtensionKit"
 
 ## Author
 
-Rondinelli Morais, rondinele.morais@portoseguro.com.br
+Rondinelli Morais, rondinellimorais@gmail.com
 
 ## License
 
