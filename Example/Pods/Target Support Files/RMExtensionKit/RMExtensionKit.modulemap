@@ -1,6 +1,0 @@
-framework module RMExtensionKit {
-  umbrella header "RMExtensionKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
