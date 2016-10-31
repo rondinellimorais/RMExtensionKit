@@ -35,7 +35,7 @@ end
 
 Create simple date
 ```swift
-let birthDate = NSDate(year: 1987, month: 09, day: 08)
+let birthDate = NSDate(year: 1987, month: 10, day: 08)
 print(birthDate)
 ```
 
