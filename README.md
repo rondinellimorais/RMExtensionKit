@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
 
 ## Overview
-RMExtesionKit é estrutura simples que contém os métodos de extensão que simplifica o uso de classes de cacau iOS / OSX.
+RMExtesionKit is simple structure that contains the extension methods that simplifies the use of cocoa classes iOS / OSX.
 
 Here are some classes that contains several useful extensions:
 
