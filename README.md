@@ -1,6 +1,6 @@
 # RMExtensionKit
 
-[![CI Status](http://img.shields.io/travis/Rondinelli Morais/RMExtensionKit.svg?style=flat)](https://travis-ci.org/Rondinelli Morais/RMExtensionKit)
+[![CI Status](http://img.shields.io/travis/rondinellimorais/RMExtensionKit.svg?style=flat)](https://travis-ci.org/rondinellimorais/RMExtensionKit)
 [![Version](https://img.shields.io/cocoapods/v/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
 [![License](https://img.shields.io/cocoapods/l/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
 [![Platform](https://img.shields.io/cocoapods/p/RMExtensionKit.svg?style=flat)](http://cocoapods.org/pods/RMExtensionKit)
