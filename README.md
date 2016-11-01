@@ -81,7 +81,7 @@ print(birthDate)
 
 Get time internal
 ```swift
-let now = NSDate()
+let birthDate = NSDate(year: 1987, month: 10, day: 08)
 print(birthDate.timeInterval())
 ```
 Date format
