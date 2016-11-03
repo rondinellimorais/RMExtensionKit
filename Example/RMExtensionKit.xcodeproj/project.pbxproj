@@ -73,6 +73,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180F8D471DCBC3080014B0ED /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* HTMLTextViewController.swift */,
+				18856F3D1DC7B43400BB34EB /* MenuViewController.swift */,
+				18856F3F1DC7B7CA00BB34EB /* NSDateViewController.swift */,
+			);
+			name = viewControllers;
+			sourceTree = "<group>";
+		};
+		180F8D481DCBC3130014B0ED /* interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = interfaces;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -97,14 +116,11 @@
 		607FACD21AFB9204008FA782 /* Example for RMExtensionKit */ = {
 			isa = PBXGroup;
 			children = (
+				180F8D471DCBC3080014B0ED /* viewControllers */,
+				180F8D481DCBC3130014B0ED /* interfaces */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* HTMLTextViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				18856F3D1DC7B43400BB34EB /* MenuViewController.swift */,
-				18856F3F1DC7B7CA00BB34EB /* NSDateViewController.swift */,
 			);
 			name = "Example for RMExtensionKit";
 			path = RMExtensionKit;

@@ -25,7 +25,7 @@ public enum NSDateCompare : Int {
 extension NSDate {
     
     /*  */
-    var isToday:Bool {
+    public var isToday:Bool {
         get {
             return NSCalendar.currentCalendar().isDateInToday(self)
         }

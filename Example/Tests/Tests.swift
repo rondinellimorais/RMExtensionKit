@@ -25,5 +25,29 @@ class Tests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+}
+
+// ==============================
+// NSDate Test
+// ==============================
+// MARK: NSDate Test
+extension Tests {
     
+    private func birthDate() -> NSDate? {
+        return NSDate(year: 1987, month: 10, day: 08)
+    }
+    
+    func testIsToday(){
+        let now = NSDate()
+        XCTAssert( now.isToday, "'now' is not today!")
+    }
+    
+    func testCreateDate() {
+        XCTAssert(self.birthDate() != nil, "date created is not valid!")
+    }
+    
+    func testCheckTimeInterval() {
+        let birthDateTimeInterval:Int64 = 560660400000
+        XCTAssert(birthDateTimeInterval == self.birthDate()!.timeInterval(), "time interval is not valid!")
+    }
 }
