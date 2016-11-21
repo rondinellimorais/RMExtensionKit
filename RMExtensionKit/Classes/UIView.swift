@@ -11,7 +11,7 @@ import UIKit
 
 extension UIView {
     
-    private var nibIndex:Int {
+    fileprivate var nibIndex:Int {
         set {
             self.tag = newValue
         }
@@ -27,25 +27,25 @@ extension UIView {
      *  @param borderColor
      *
      */
-    public func showBorder(borderWidth:CGFloat, borderColor:UIColor){
-        self.layer.borderColor = borderColor.CGColor
+    public func showBorder(_ borderWidth:CGFloat, borderColor:UIColor){
+        self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = borderWidth
     }
     
     public func toImage() -> UIImage? {
         
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.isOpaque, UIScreen.main.scale)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
     }
     
-    public func toImage(frame: CGRect) -> UIImage? {
+    public func toImage(_ frame: CGRect) -> UIImage? {
         
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.mainScreen().scale)
-        CGContextClipToRect(UIGraphicsGetCurrentContext(), frame)
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale)
+        UIGraphicsGetCurrentContext()?.clip(to: frame)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
@@ -72,12 +72,12 @@ extension UIView {
     
     
     
-    public func loadNibView(index:Int? = nil) {
+    public func loadNibView(_ index:Int? = nil) {
         self.nibIndex = (index == nil ? 0 : index!)
         xibSetup()
     }
     
-    private func xibSetup() {
+    fileprivate func xibSetup() {
         
         if let view = loadViewFromNib() {
             
@@ -85,16 +85,16 @@ extension UIView {
             view.frame = bounds
             
             // Make the view stretch with containing view
-            view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
             // Adding custom subview on top of our view (over any custom drawing > see note below)
             addSubview(view)
         }
     }
     
-    private func loadViewFromNib() -> UIView? {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let view = bundle.loadNibNamed("\(self.dynamicType)", owner: self, options: nil)[self.nibIndex]  as! UIView
+    fileprivate func loadViewFromNib() -> UIView? {
+        let bundle = Bundle(for: type(of: self))
+        let view = bundle.loadNibNamed("\(type(of: self))", owner: self, options: nil)?[self.nibIndex]  as! UIView
         return view
     }
 }

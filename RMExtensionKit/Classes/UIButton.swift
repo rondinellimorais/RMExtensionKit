@@ -14,7 +14,7 @@ extension UIButton {
         set {
             if newValue {
                 let attrs = [
-                    NSUnderlineStyleAttributeName : NSUnderlineStyle.StyleSingle.rawValue
+                    NSUnderlineStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue
                 ]
                 self.titleLabel?.attributedText = NSMutableAttributedString(string: self.titleLabel!.text!, attributes: attrs)
             }
@@ -23,11 +23,11 @@ extension UIButton {
             let range = NSMakeRange(0, self.titleLabel!.text!.length)
             var underlined:Bool = false
             
-            self.titleLabel?.attributedText?.enumerateAttributesInRange(range, options: NSAttributedStringEnumerationOptions.LongestEffectiveRangeNotRequired, usingBlock: { (attributes:[String : AnyObject], range:NSRange, stop) in
+            self.titleLabel?.attributedText?.enumerateAttributes(in: range, options: NSAttributedString.EnumerationOptions.longestEffectiveRangeNotRequired) { (attributes, range, stop) in
                 if attributes[NSUnderlineStyleAttributeName] != nil {
                     underlined = Bool(attributes[NSUnderlineStyleAttributeName] as! NSNumber)
                 }
-            })
+            }
             return underlined
         }
     }

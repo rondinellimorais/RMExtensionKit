@@ -8,20 +8,20 @@
 
 import UIKit
 
-public class ImageDownload: NSObject {
+open class ImageDownload: NSObject {
     
     // MARK: Properties
-    public class var cacheDirectory:String {
+    open class var cacheDirectory:String {
         get {
-            let path = NSString(string: NSHomeDirectory()).stringByAppendingPathComponent("/Library/Caches/Images")
+            let path = NSString(string: NSHomeDirectory()).appendingPathComponent("/Library/Caches/Images")
             return path
         }
     }
     
-    private var imageURL:NSURL?
+    fileprivate var imageURL:URL?
     
     // MARK: Public methods
-    public convenience init(URL imageURL:NSURL!) {
+    public convenience init(URL imageURL:URL!) {
         self.init()
         if imageURL == nil {
             fatalError("URL cannot be nil!")
@@ -29,45 +29,45 @@ public class ImageDownload: NSObject {
         self.imageURL = imageURL
     }
     
-    public func execute(block:((image:UIImage?, error:NSError?) -> Void)?) {
+    open func execute(_ block:((_ image:UIImage?, _ error:NSError?) -> Void)?) {
         
         // if exists set image
         if let image = self.imageAtURL() {
             
             if block != nil {
-                block!(image:image, error: nil)
+                block!(image, nil)
             }
             return
         }
         
         // if not exists, download
-        let fileName = self.imageURL!.lastPathComponent!
-        let fullPathFile = NSString(string: self.imageURL!.path!).stringByDeletingLastPathComponent
-        let directory = NSString(string: ImageDownload.cacheDirectory).stringByAppendingPathComponent(fullPathFile)
+        let fileName = self.imageURL!.lastPathComponent
+        let fullPathFile = NSString(string: self.imageURL!.path).deletingLastPathComponent
+        let directory = NSString(string: ImageDownload.cacheDirectory).appendingPathComponent(fullPathFile)
         
         // create directory
         do
         {
-            try NSFileManager.defaultManager().createDirectoryAtPath(directory, withIntermediateDirectories:true, attributes: nil)
+            try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories:true, attributes: nil)
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
                 
-                let imageRequest = NSURLRequest(URL: self.imageURL!,
-                    cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy,
+                let imageRequest = URLRequest(url: self.imageURL!,
+                    cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy,
                     timeoutInterval: 30.0)
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
 
                     self.imageData(imageRequest, completionHandler: { (imgData, error) -> Void in
                         if error == nil {
-                            imgData!.writeToFile("\(directory)/\(fileName)", atomically: true)
+                            try? imgData!.write(to: URL(fileURLWithPath: "\(directory)/\(fileName)"), options: [.atomic])
                             if block != nil {
-                                block!(image:UIImage(data: imgData!), error: nil)
+                                block!(UIImage(data: imgData!), nil)
                             }
                         }
                         else {
                             if block != nil {
-                                block!(image:nil, error:error)
+                                block!(nil, error)
                             }
                         }
                     })
@@ -76,29 +76,29 @@ public class ImageDownload: NSObject {
             
         } catch {
             if block != nil {
-                block!(image:nil, error:error as NSError)
+                block!(nil, error as NSError)
             }
         }
     }
     
     // MARK: private methods
-    private func imageAtURL() -> UIImage? {
+    fileprivate func imageAtURL() -> UIImage? {
         
-        let fullPath = NSString(string: ImageDownload.cacheDirectory).stringByAppendingPathComponent(self.imageURL!.path!)
-        if NSFileManager.defaultManager().fileExistsAtPath(fullPath) {
+        let fullPath = NSString(string: ImageDownload.cacheDirectory).appendingPathComponent(self.imageURL!.path)
+        if FileManager.default.fileExists(atPath: fullPath) {
             return UIImage(contentsOfFile: fullPath)
         }
         return nil
     }
     
-    private func imageData(imageRequest:NSURLRequest, completionHandler:((data:NSData?, error:NSError?) -> Void)?) {
+    fileprivate func imageData(_ imageRequest:URLRequest, completionHandler:((_ data:Data?, _ error:NSError?) -> Void)?) {
         
         if #available(iOS 9, *)
         {
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(imageRequest, completionHandler: { (data, response, error) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
+            let task = URLSession.shared.dataTask(with: imageRequest, completionHandler: { (data, response, error) -> Void in
+                DispatchQueue.main.async(execute: {
                     if completionHandler != nil {
-                        completionHandler!(data: data, error: error)
+                        completionHandler!(data, error as NSError?)
                     }
                 })
             })
@@ -108,13 +108,13 @@ public class ImageDownload: NSObject {
         {
             // iOs 8.x
             do {
-                let imageData = try NSURLConnection.sendSynchronousRequest(imageRequest, returningResponse: nil)
+                let imageData = try NSURLConnection.sendSynchronousRequest(imageRequest, returning: nil)
                 if completionHandler != nil {
-                    completionHandler!(data: imageData, error: nil)
+                    completionHandler!(imageData, nil)
                 }
             } catch {
                 if completionHandler != nil {
-                    completionHandler!(data: nil, error: error as NSError)
+                    completionHandler!(nil, error as NSError)
                 }
             }
         }

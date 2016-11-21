@@ -21,7 +21,7 @@ class Tests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }
@@ -33,12 +33,12 @@ class Tests: XCTestCase {
 // MARK: NSDate Test
 extension Tests {
     
-    private func birthDate() -> NSDate? {
-        return NSDate(year: 1987, month: 10, day: 08)
+    fileprivate func birthDate() -> Date? {
+        return Date(year: 1987, month: 10, day: 08)
     }
     
     func testIsToday(){
-        let now = NSDate()
+        let now = Date()
         XCTAssert( now.isToday, "'now' is not today!")
     }
     

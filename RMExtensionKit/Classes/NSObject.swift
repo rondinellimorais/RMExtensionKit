@@ -10,7 +10,7 @@ import UIKit
 
 extension NSObject {
 
-    public func toString(args:AnyObject? = nil) -> String {
+    public func toString(_ args:AnyObject? = nil) -> String {
         return "\(self)"
     }
 }
