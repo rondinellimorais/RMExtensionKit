@@ -28,7 +28,7 @@ The RMExtensionKit is simple framework that contains any extension methods which
   s.source           = { :git => 'https://github.com/rondinellimorais/RMExtensionKit.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/rondmorais'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'RMExtensionKit/Classes/**/*'
 
