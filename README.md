@@ -34,7 +34,7 @@ Here are some classes that contains several useful extensions:
 		* toImage
 		* loadNibView
 
-- #### NSDate
+- #### Date
 	+ properties
 		* isToday
 
@@ -75,18 +75,18 @@ end
 
 Create simple date
 ```swift
-let birthDate = NSDate(year: 1987, month: 10, day: 08)
+let birthDate = Date(year: 1987, month: 10, day: 08)
 print(birthDate)
 ```
 
 Get time internal
 ```swift
-let birthDate = NSDate(year: 1987, month: 10, day: 08)
+let birthDate = Date(year: 1987, month: 10, day: 08)
 print(birthDate.timeInterval())
 ```
 Date format
 ```swift
-let birthDate = NSDate(year: 1987, month: 10, day: 08)
+let birthDate = Date(year: 1987, month: 10, day: 08)
 print(birthDate.toString("yyyy/MM/dd"))
 ```
 
