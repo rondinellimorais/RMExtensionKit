@@ -10,12 +10,12 @@ import UIKit
 
 extension UIStoryboard {
 
-    public class func mainBoard(bundle:NSBundle? = NSBundle.mainBundle()) -> UIStoryboard {
-        let storyBoard:String = NSBundle.mainBundle().objectForInfoDictionaryKey("UIMainStoryboardFile") as! String
+    public class func mainBoard(_ bundle:Bundle? = Bundle.main) -> UIStoryboard {
+        let storyBoard:String = Bundle.main.object(forInfoDictionaryKey: "UIMainStoryboardFile") as! String
         return UIStoryboard(name:storyBoard, bundle:bundle)
     }
     
-    public func board(storeBoardID:String) -> UIViewController? {
-        return self.instantiateViewControllerWithIdentifier(storeBoardID)
+    public func board(_ storeBoardID:String) -> UIViewController? {
+        return self.instantiateViewController(withIdentifier: storeBoardID)
     }
 }

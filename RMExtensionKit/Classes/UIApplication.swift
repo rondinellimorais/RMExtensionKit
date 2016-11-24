@@ -10,12 +10,12 @@ import UIKit
 
 extension UIApplication {
     
-    public func call(phoneNumber:String, showPrompt:Bool? = true) {
+    public func call(_ phoneNumber:String, showPrompt:Bool? = true) {
         
         if showPrompt! {
-            self.openURL(NSURL(string: "telprompt://\(phoneNumber)")!)
+            self.openURL(URL(string: "telprompt://\(phoneNumber)")!)
             return
         }
-        self.openURL(NSURL(string: "tel://\(phoneNumber)")!)
+        self.openURL(URL(string: "tel://\(phoneNumber)")!)
     }
 }

@@ -10,9 +10,9 @@ import UIKit
 
 extension UITableView {
     
-    public func rowHeight(cellIdentifier:String) -> CGFloat {
+    public func rowHeight(_ cellIdentifier:String) -> CGFloat {
         
-        if let cell:UITableViewCell = self.dequeueReusableCellWithIdentifier(cellIdentifier) {
+        if let cell:UITableViewCell = self.dequeueReusableCell(withIdentifier: cellIdentifier) {
             return cell.frame.height
         }
         return self.rowHeight

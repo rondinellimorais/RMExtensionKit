@@ -11,13 +11,13 @@ import UIKit
 extension UIDevice {
 
     public func deviceRemainingFreeSpaceInBytes() -> Int64? {
-        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        var attributes: [String: AnyObject]
+        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        var attributes: [FileAttributeKey: Any]
         do {
-            attributes = try NSFileManager.defaultManager().attributesOfFileSystemForPath(documentDirectoryPath.last! as String)
-            let freeSize = attributes[NSFileSystemFreeSize] as? NSNumber
+            attributes = try FileManager.default.attributesOfFileSystem(forPath: documentDirectoryPath.last! as String)
+            let freeSize = attributes[FileAttributeKey.systemFreeSize] as? NSNumber
             if (freeSize != nil) {
-                return freeSize?.longLongValue
+                return freeSize?.int64Value
             } else {
                 return nil
             }

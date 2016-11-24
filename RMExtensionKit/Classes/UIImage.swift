@@ -12,22 +12,22 @@ extension UIImage {
     
     public func normalizedImage() -> UIImage {
         
-        if (self.imageOrientation == UIImageOrientation.Up) {
+        if (self.imageOrientation == UIImageOrientation.up) {
             return self;
         }
         
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
         let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
-        self.drawInRect(rect)
+        self.draw(in: rect)
         
-        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext();
         return normalizedImage;
     }
     
-    public func crop(size:CGSize) -> UIImage {
+    public func crop(_ size:CGSize) -> UIImage {
         
-        let contextImage: UIImage = UIImage(CGImage: self.CGImage!)
+        let contextImage: UIImage = UIImage(cgImage: self.cgImage!)
         
         let contextSize: CGSize = contextImage.size
         
@@ -49,34 +49,34 @@ extension UIImage {
             cgheight = contextSize.width
         }
         
-        let rect: CGRect = CGRectMake(posX, posY, cgwidth, cgheight)
+        let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
         
         // Create bitmap image from context using the rect
-        let imageRef: CGImageRef = CGImageCreateWithImageInRect(contextImage.CGImage, rect)!
+        let imageRef: CGImage = (contextImage.cgImage)!.cropping(to: rect)!
         
         // Create a new image based on the imageRef and rotate back to the original orientation
-        let image: UIImage = UIImage(CGImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+        let image: UIImage = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
         
         return image
     }
     
-    public func resize(size:CGSize) -> UIImage {
+    public func resize(_ size:CGSize) -> UIImage {
         let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
         UIGraphicsBeginImageContextWithOptions(size, true, scale)
-        self.drawInRect(CGRect(origin: CGPointZero, size: size))
+        self.draw(in: CGRect(origin: CGPoint.zero, size: size))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return scaledImage
+        return scaledImage!
     }
     
-    public func save(path:String) throws -> Bool {
+    public func save(_ path:String) throws -> Bool {
         
-        let URL = NSURL(string: path)
-        let fullPathFile = NSString(string: URL!.path!).stringByDeletingLastPathComponent
+        let URL = Foundation.URL(string: path)
+        let fullPathFile = NSString(string: URL!.path).deletingLastPathComponent
         
-        try! NSFileManager.defaultManager().createDirectoryAtPath(fullPathFile, withIntermediateDirectories:true, attributes: nil)
-        let fileManager = NSFileManager()
-        let data = UIImageJPEGRepresentation(self, UIScreen.mainScreen().scale)
-        return fileManager.createFileAtPath(path, contents: data, attributes: nil)
+        try! FileManager.default.createDirectory(atPath: fullPathFile, withIntermediateDirectories:true, attributes: nil)
+        let fileManager = FileManager()
+        let data = UIImageJPEGRepresentation(self, UIScreen.main.scale)
+        return fileManager.createFile(atPath: path, contents: data, attributes: nil)
     }
 }

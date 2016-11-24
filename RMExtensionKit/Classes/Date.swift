@@ -9,25 +9,25 @@
 import UIKit
 
 /**
- *  `NSDateCompare` is a enum for compare dates
+ *  `DateCompare` is a enum for compare dates
  *  `Later` It indicates that the current date is greater than the last time as a parameter
  *  `Equals` It indicates that the current date is equals than the last time as a parameter
  *  `Less` It indicates that the current date is less than the last time as a parameter
  *  `Undefine` When none of these options are met
  */
-public enum NSDateCompare : Int {
-    case Undefined
-    case Later
-    case Equals
-    case Less
+public enum DateCompare : Int {
+    case undefined
+    case later
+    case equals
+    case less
 }
 
-extension NSDate {
+extension Date {
     
     /*  */
     public var isToday:Bool {
         get {
-            return NSCalendar.currentCalendar().isDateInToday(self)
+            return Calendar.current.isDateInToday(self)
         }
     }
     
@@ -41,7 +41,7 @@ extension NSDate {
     *
     *  @return New `NSDate` modify
     */
-    public func addSeconds(second:Int) -> NSDate {
+    public func addSeconds(_ second:Int) -> Date {
         return addTime(year: 0, month: 0, hour: 0, minute: 0, second: second)
     }
     
@@ -54,7 +54,7 @@ extension NSDate {
      *
      *  @return New `NSDate` modify
      */
-    public func addMinutes(minutes:Int) -> NSDate {
+    public func addMinutes(_ minutes:Int) -> Date {
         return addTime(year: 0, month: 0, hour: 0, minute: minutes, second: 0)
     }
     
@@ -67,7 +67,7 @@ extension NSDate {
      *
      *  @return New `NSDate` modify
      */
-    public func addHours(hours:Int) -> NSDate {
+    public func addHours(_ hours:Int) -> Date {
         return addTime(year: 0, month:0, hour:hours, minute:0, second:0)
     }
     
@@ -80,7 +80,7 @@ extension NSDate {
      *
      *  @return New `NSDate` modify
      */
-    public func addMonths(month:Int) -> NSDate {
+    public func addMonths(_ month:Int) -> Date {
         return addTime(year: 0, month:month, hour:0, minute:0, second:0)
     }
     
@@ -91,7 +91,7 @@ extension NSDate {
      *
      *  @return New `NSDate` modify
      */
-    public func addYears(year:Int) -> NSDate {
+    public func addYears(_ year:Int) -> Date {
         return addTime(year:year, month:0, hour:0, minute:0, second:0)
     }
     
@@ -105,11 +105,11 @@ extension NSDate {
     /**
      * 
      */
-    public override func toString(dateFormatter: AnyObject?) -> String {
-        let dateStringFormatter = NSDateFormatter()
-        dateStringFormatter.dateFormat = dateFormatter as! String
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        return dateStringFormatter.stringFromDate(self)
+    public func toString(_ dateFormat: String) -> String {
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = dateFormat
+        dateStringFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateStringFormatter.string(from: self)
     }
     
     /**
@@ -119,20 +119,20 @@ extension NSDate {
      *
      *  @return enum `NSDateCompare`
      */
-    public func compareTo(anotherDate:NSDate) -> NSDateCompare {
+    public func compareTo(_ anotherDate:Date) -> DateCompare {
         
         let comparation = self.compare(anotherDate)
         
-        if comparation == NSComparisonResult.OrderedDescending {
-            return NSDateCompare.Later
+        if comparation == ComparisonResult.orderedDescending {
+            return DateCompare.later
         }
-        else if comparation == NSComparisonResult.OrderedAscending {
-            return NSDateCompare.Less
+        else if comparation == ComparisonResult.orderedAscending {
+            return DateCompare.less
         }
-        else if comparation == NSComparisonResult.OrderedSame {
-            return NSDateCompare.Equals
+        else if comparation == ComparisonResult.orderedSame {
+            return DateCompare.equals
         }
-        return NSDateCompare.Undefined
+        return DateCompare.undefined
     }
     
     /**
@@ -142,39 +142,39 @@ extension NSDate {
      *
      *  @return list of strings
      */
-    public func months(numberOfMonth:Int) -> [String] {
+    public func months(_ numberOfMonth:Int) -> [String] {
         
-        let dateFormatter: NSDateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "pt_BR")
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR")
         let months = dateFormatter.standaloneMonthSymbols
-        let calendar = NSCalendar.currentCalendar()
-        let components:NSDateComponents = calendar.components([.Month], fromDate: self)
+        let calendar = Calendar.current
+        let components:DateComponents = (calendar as NSCalendar).components([.month], from: self)
         let start = components.month
         var end = 0
         var returnMonths:[String] = []
-        var currentMonth = components.month
+        var currentMonth = components.month!
         
         // descending
         if numberOfMonth < 0 {
-            end = (components.month + (numberOfMonth + 1) )
-            for _ in end ... start {
-                returnMonths.append( months[currentMonth - 1].uppercaseString )
+            end = (components.month! + (numberOfMonth + 1) )
+            for _ in end ... start! {
+                returnMonths.append( (months?[currentMonth - 1].uppercased())! )
                 if currentMonth == 1 { currentMonth = 12 } else { currentMonth -= 1 }
             }
         }
         
         // ascending
         if numberOfMonth > 0 {
-            end = (components.month + (numberOfMonth - 1) )
-            for _ in start ... end {
-                returnMonths.append( months[currentMonth - 1].uppercaseString )
+            end = (components.month! + (numberOfMonth - 1) )
+            for _ in start! ... end {
+                returnMonths.append( (months?[currentMonth - 1].uppercased())! )
                 if currentMonth == 12 { currentMonth = 1 } else { currentMonth += 1 }
             }
         }
         
         // when is empty
         if returnMonths.isEmpty {
-            returnMonths.append(months[components.month])
+            returnMonths.append((months?[components.month!])!)
         }
         
         return returnMonths
@@ -183,13 +183,13 @@ extension NSDate {
     /**
      *
      */
-    public func differecesDay(anotherDate:NSDate) -> Int {
+    public func differecesDay(_ anotherDate:Date) -> Int {
 
-        let calendar: NSCalendar = NSCalendar.currentCalendar()
-        let date1 = calendar.startOfDayForDate(self)
-        let date2 = calendar.startOfDayForDate(anotherDate)
-        let components = calendar.components(NSCalendarUnit.Day, fromDate: date1, toDate: date2, options: [])
-        return components.day
+        let calendar: Calendar = Calendar.current
+        let date1 = calendar.startOfDay(for: self)
+        let date2 = calendar.startOfDay(for: anotherDate)
+        let components = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: date1, to: date2, options: [])
+        return components.day!
     }
     
     // ==================================================================
@@ -202,8 +202,8 @@ extension NSDate {
     *
     *  @return A `NSDate` valid
     */
-    public convenience init(timeInterval:Int64) {
-        let date = NSDate(timeIntervalSince1970:NSTimeInterval(timeInterval/1000))
+    public init(timeInterval:Int64) {
+        let date = Date(timeIntervalSince1970:TimeInterval(timeInterval/1000))
         self.init(timeIntervalSinceNow:date.timeIntervalSinceNow)
     }
     
@@ -219,8 +219,8 @@ extension NSDate {
      *
      *  @return A `NSDate` valid
      */
-    public convenience init(year:Int, month:Int, day:Int, hour:Int, minute:Int, second:Int){
-        let date = NSDate.createDate(year: year, month: month, day: day, hour: hour, minute: minute, second: second)
+    public init(year:Int, month:Int, day:Int, hour:Int, minute:Int, second:Int){
+        let date = Date.createDate(year: year, month: month, day: day, hour: hour, minute: minute, second: second)
         self.init(timeIntervalSinceNow:date.timeIntervalSinceNow)
     }
     
@@ -235,8 +235,8 @@ extension NSDate {
      *
      *  @return A `NSDate` valid
      */
-    public convenience init(year:Int, month:Int, day:Int, hour:Int, minute:Int){
-        let date = NSDate.createDate(year: year, month: month, day: day, hour: hour, minute: minute, second: 0)
+    public init(year:Int, month:Int, day:Int, hour:Int, minute:Int){
+        let date = Date.createDate(year: year, month: month, day: day, hour: hour, minute: minute, second: 0)
         self.init(timeIntervalSinceNow:date.timeIntervalSinceNow)
 
     }
@@ -250,15 +250,15 @@ extension NSDate {
      *
      *  @return A `NSDate` valid
      */
-    public convenience init(year:Int, month:Int, day:Int){
-        let date = NSDate.createDate(year: year, month: month, day: day, hour: 0, minute: 0, second: 0)
+    public init(year:Int, month:Int, day:Int){
+        let date = Date.createDate(year: year, month: month, day: day, hour: 0, minute: 0, second: 0)
         self.init(timeIntervalSinceNow:date.timeIntervalSinceNow)
 
     }
 
     // MARK: Private
-    private func addTime(year year:Int, month:Int, hour:Int, minute:Int, second:Int) -> NSDate {
-        let components = NSDateComponents()
+    fileprivate func addTime(year:Int, month:Int, hour:Int, minute:Int, second:Int) -> Date {
+        var components = DateComponents()
         
         components.year = year
         components.month = month
@@ -266,18 +266,18 @@ extension NSDate {
         components.minute = minute
         components.second = second
         
-        return NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: self, options: NSCalendarOptions(rawValue: 0))!
+        return (Calendar.current as NSCalendar).date(byAdding: components, to: self, options: NSCalendar.Options(rawValue: 0))!
     }
     
-    private class func createDate(year year:Int, month:Int, day:Int, hour:Int, minute:Int, second:Int) -> NSDate {
-        let components = NSDateComponents()
+    fileprivate static func createDate(year:Int, month:Int, day:Int, hour:Int, minute:Int, second:Int) -> Date {
+        var components = DateComponents()
         components.year = year
         components.month = month
         components.day = day
         components.hour = hour
         components.minute = minute
         components.second = second
-        return NSCalendar.currentCalendar().dateFromComponents(components)!
+        return Calendar.current.date(from: components)!
     }
 }
 

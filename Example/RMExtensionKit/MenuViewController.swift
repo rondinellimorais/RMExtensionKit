@@ -15,31 +15,31 @@ class MenuViewController: UIViewController {
         ["segueIdentifier" : "NSDateSampleIdentifier", "title" : "NSDate Sample"],
     ]
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.destinationViewController.isKindOfClass(UIViewController) {
-           segue.destinationViewController.title = (sender as! String)
+        if segue.destination.isKind(of: UIViewController.self) {
+           segue.destination.title = (sender as! String)
         }
     }
 }
 
 extension MenuViewController : UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cellIdentifiers.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: nil)
         let data = self.cellIdentifiers[indexPath.row] as [String : String]!
-        cell.textLabel?.text = data["title"] as String!
+        cell.textLabel?.text = data?["title"] as String!
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         
         let data = self.cellIdentifiers[indexPath.row] as [String : String]!
-        self.performSegueWithIdentifier(data["segueIdentifier"] as String!, sender: data["title"])
+        self.performSegue(withIdentifier: data?["segueIdentifier"] as String!, sender: data?["title"])
     }
 }
