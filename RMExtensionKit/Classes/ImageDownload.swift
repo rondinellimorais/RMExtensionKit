@@ -50,13 +50,13 @@ open class ImageDownload: NSObject {
         {
             try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories:true, attributes: nil)
             
-            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
+            DispatchQueue.global(qos: .default).async {
                 
                 let imageRequest = URLRequest(url: self.imageURL!,
                     cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy,
                     timeoutInterval: 30.0)
                 
-                DispatchQueue.main.async(execute: {
+                DispatchQueue.main.async {
 
                     self.imageData(imageRequest, completionHandler: { (imgData, error) -> Void in
                         if error == nil {
@@ -71,8 +71,8 @@ open class ImageDownload: NSObject {
                             }
                         }
                     })
-                })
-            })
+                }
+            }
             
         } catch {
             if block != nil {
@@ -96,11 +96,11 @@ open class ImageDownload: NSObject {
         if #available(iOS 9, *)
         {
             let task = URLSession.shared.dataTask(with: imageRequest, completionHandler: { (data, response, error) -> Void in
-                DispatchQueue.main.async(execute: {
+                DispatchQueue.main.async {
                     if completionHandler != nil {
                         completionHandler!(data, error as NSError?)
                     }
-                })
+                }
             })
             task.resume()
         }
