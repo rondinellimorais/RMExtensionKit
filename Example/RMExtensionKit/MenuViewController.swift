@@ -13,6 +13,7 @@ class MenuViewController: UIViewController {
     var cellIdentifiers = [
         ["segueIdentifier" : "sampleHTMLIdentifier", "title" : "HTML Text Sample"],
         ["segueIdentifier" : "NSDateSampleIdentifier", "title" : "NSDate Sample"],
+        ["segueIdentifier" : "UIColorSampleSegueIdentifier", "title" : "UIColor Sample"],
     ]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
