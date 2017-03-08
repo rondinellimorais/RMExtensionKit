@@ -19,23 +19,48 @@ extension UIColor {
     }
     
     public convenience init(r: Float, g: Float, b: Float) {
-        self.init(r:r, g: g, b: b, a: 1.0)
-    }
-    
-    public convenience init(hex:Int) {
-        let components = (
-            R: CGFloat((hex >> 16) & 0xff) / 255,
-            G: CGFloat((hex >> 08) & 0xff) / 255,
-            B: CGFloat((hex >> 00) & 0xff) / 255
-        )
-        self.init(r:Float(components.R), g: Float(components.G), b: Float(components.B), a: 1.0)
+        self.init(r:r, g:g, b:b, a: 1.0)
     }
     
     public class func random(alpha:CGFloat? = nil) -> UIColor {
         return UIColor(red: randomCGFloat(), green: randomCGFloat(), blue: randomCGFloat(), alpha: (alpha ?? randomCGFloat())  )
     }
     
+    /* 
+        create color base on hexdecimal string
+        UIColor("#00ADEE")
+        UIColor("#8BC53F")
+        UIColor("#AB2784")
+        UIColor("#6F3D23")
+     */
+    
+    public convenience init?(_ hex:String) {
+        
+        var hexValue:  UInt32 = 0
+        
+        // remove #
+        let invertedSet = CharacterSet(charactersIn: "#")
+        let cleanerHexString = hex.components(separatedBy: invertedSet).joined(separator: "")
+        
+        guard Scanner(string: cleanerHexString).scanHexInt32(&hexValue) else {
+            assertionFailure("hex decimal color \(hex) is invalid!")
+            return nil
+        }
+        
+        self.init(hex: Int(hexValue))
+    }
+    
+    // MARK: Private methods
     private class func randomCGFloat() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+    
+    private convenience init(hex:Int) {
+        self.init(
+            red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((hex & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(hex & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }

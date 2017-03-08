@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -171,24 +172,60 @@
                                     <constraint firstAttribute="height" constant="128" id="S53-0K-sUc"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEX random" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fl-Ub-3Iv">
+                                <rect key="frame" x="16" y="237" width="169" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="oxV-Vw-hnI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-wF-8GR">
+                                <rect key="frame" x="16" y="266" width="343" height="128"/>
+                                <color key="backgroundColor" red="0.53094681605090444" green="0.41784923054252698" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="HYN-Pr-XyM"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#00000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDh-W8-U5I">
+                                <rect key="frame" x="193" y="237" width="166" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="mzb-HF-97T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9Fl-Ub-3Iv" firstAttribute="firstBaseline" secondItem="qDh-W8-U5I" secondAttribute="firstBaseline" id="3aB-Vm-Xao"/>
+                            <constraint firstItem="qDh-W8-U5I" firstAttribute="trailing" secondItem="B1z-Aa-Hcj" secondAttribute="trailing" id="4Ut-ml-BDm"/>
+                            <constraint firstItem="9Fl-Ub-3Iv" firstAttribute="top" secondItem="Heb-8M-Huh" secondAttribute="bottom" constant="8" symbolic="YES" id="8r0-eJ-uND"/>
+                            <constraint firstItem="qDh-W8-U5I" firstAttribute="leading" secondItem="9Fl-Ub-3Iv" secondAttribute="trailing" constant="8" symbolic="YES" id="CvS-Wi-y4y"/>
                             <constraint firstItem="B1z-Aa-Hcj" firstAttribute="top" secondItem="rKU-YT-Eaz" secondAttribute="bottom" constant="8" symbolic="YES" id="F3S-hB-PV7"/>
                             <constraint firstAttribute="trailing" secondItem="B1z-Aa-Hcj" secondAttribute="trailing" constant="16" id="Mrd-GF-hKY"/>
                             <constraint firstItem="Heb-8M-Huh" firstAttribute="centerX" secondItem="B1z-Aa-Hcj" secondAttribute="centerX" id="Nwo-XQ-90t"/>
                             <constraint firstItem="Heb-8M-Huh" firstAttribute="centerX" secondItem="rKU-YT-Eaz" secondAttribute="centerX" id="O50-fd-hsI"/>
+                            <constraint firstItem="9Fl-Ub-3Iv" firstAttribute="baseline" secondItem="qDh-W8-U5I" secondAttribute="baseline" id="PzI-Sp-5aj"/>
+                            <constraint firstItem="1cE-wF-8GR" firstAttribute="top" secondItem="9Fl-Ub-3Iv" secondAttribute="bottom" constant="8" symbolic="YES" id="Vot-ga-1rg"/>
                             <constraint firstItem="Heb-8M-Huh" firstAttribute="leading" secondItem="hlw-ai-E2k" secondAttribute="leading" id="WYb-1j-Gp2"/>
+                            <constraint firstItem="9Fl-Ub-3Iv" firstAttribute="leading" secondItem="B1z-Aa-Hcj" secondAttribute="leading" id="gNg-S8-xbR"/>
                             <constraint firstItem="B1z-Aa-Hcj" firstAttribute="leading" secondItem="hlw-ai-E2k" secondAttribute="leading" constant="16" id="hDQ-9N-gqP"/>
                             <constraint firstItem="Heb-8M-Huh" firstAttribute="top" secondItem="B1z-Aa-Hcj" secondAttribute="top" id="hKA-oV-9JQ"/>
                             <constraint firstItem="rKU-YT-Eaz" firstAttribute="leading" secondItem="B1z-Aa-Hcj" secondAttribute="leading" id="iaG-IM-Ri1"/>
+                            <constraint firstItem="qDh-W8-U5I" firstAttribute="trailing" secondItem="1cE-wF-8GR" secondAttribute="trailing" id="ikY-TA-chU"/>
                             <constraint firstItem="Heb-8M-Huh" firstAttribute="bottom" secondItem="B1z-Aa-Hcj" secondAttribute="bottom" id="kvE-rf-3Dp"/>
                             <constraint firstItem="rKU-YT-Eaz" firstAttribute="top" secondItem="qWG-tH-oTD" secondAttribute="bottom" constant="8" symbolic="YES" id="meS-8d-d2q"/>
+                            <constraint firstItem="9Fl-Ub-3Iv" firstAttribute="leading" secondItem="1cE-wF-8GR" secondAttribute="leading" id="pw6-bG-Oye"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D9h-jc-THH"/>
                     <connections>
                         <outlet property="boxView" destination="B1z-Aa-Hcj" id="qcI-tA-1r5"/>
+                        <outlet property="hexBoxView" destination="1cE-wF-8GR" id="oM8-gx-Fvv"/>
+                        <outlet property="hexdecimalTextLabel" destination="qDh-W8-U5I" id="UdK-nv-e1m"/>
                         <outlet property="opacityTextLabel" destination="Heb-8M-Huh" id="xcF-LI-RG5"/>
                     </connections>
                 </viewController>
