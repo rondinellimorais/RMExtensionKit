@@ -10,6 +10,7 @@
 		18856F3E1DC7B43400BB34EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18856F3D1DC7B43400BB34EB /* MenuViewController.swift */; };
 		18856F401DC7B7CA00BB34EB /* NSDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18856F3F1DC7B7CA00BB34EB /* NSDateViewController.swift */; };
 		1894AB621E7057FF0046A9C8 /* UIColorSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894AB611E7057FF0046A9C8 /* UIColorSampleViewController.swift */; };
+		18D8ED9B1E76E69900F5E710 /* ImageDownloaderSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8ED9A1E76E69900F5E710 /* ImageDownloaderSampleViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* HTMLTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* HTMLTextViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		18856F3D1DC7B43400BB34EB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		18856F3F1DC7B7CA00BB34EB /* NSDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateViewController.swift; sourceTree = "<group>"; };
 		1894AB611E7057FF0046A9C8 /* UIColorSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorSampleViewController.swift; sourceTree = "<group>"; };
+		18D8ED9A1E76E69900F5E710 /* ImageDownloaderSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloaderSampleViewController.swift; sourceTree = "<group>"; };
 		35F49F6B8EA6643AAD5FDA95 /* Pods_RMExtensionKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RMExtensionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4011D1BB3EF187A33865263A /* Pods-RMExtensionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMExtensionKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RMExtensionKit_Example/Pods-RMExtensionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		51BDAA56142DD14C49D71713 /* Pods-RMExtensionKit_Example-RMExtensionKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMExtensionKit_Example-RMExtensionKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RMExtensionKit_Example-RMExtensionKit_Tests/Pods-RMExtensionKit_Example-RMExtensionKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				18856F3D1DC7B43400BB34EB /* MenuViewController.swift */,
 				18856F3F1DC7B7CA00BB34EB /* NSDateViewController.swift */,
 				1894AB611E7057FF0046A9C8 /* UIColorSampleViewController.swift */,
+				18D8ED9A1E76E69900F5E710 /* ImageDownloaderSampleViewController.swift */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				1894AB621E7057FF0046A9C8 /* UIColorSampleViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* HTMLTextViewController.swift in Sources */,
 				18856F3E1DC7B43400BB34EB /* MenuViewController.swift in Sources */,
+				18D8ED9B1E76E69900F5E710 /* ImageDownloaderSampleViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				18856F401DC7B7CA00BB34EB /* NSDateViewController.swift in Sources */,
 			);
