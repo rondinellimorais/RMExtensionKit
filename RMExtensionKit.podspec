@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RMExtensionKit'
-  s.version          = '1.2.1'
+  s.version          = '1.3.0'
   s.summary          = 'Extension methods which simplifies the use of Cocoa classes iOS / OSX.'
 
 # This description is used to generate tags and improve search results.
