@@ -28,7 +28,6 @@ class ImageDownloaderSampleViewController: UIViewController {
             // the image cached will be returned on image object
             
             if error == nil {
-                print("\(image)")
                 // UIImageView(image:image)
             }
         }

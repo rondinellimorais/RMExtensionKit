@@ -24,13 +24,18 @@ public enum DateCompare : Int {
 
 extension Date {
     
-    /*  */
+    // MARK: privates vars
+    private static let associationMap = NSMapTable<NSString, AnyObject>()
+    private struct Keys {
+        static var Locale:NSString = "locale"
+    }
+    
+    /* Returns true if the target date equals the current date */
     public var isToday:Bool {
         get {
             return Calendar.current.isDateInToday(self)
         }
     }
-    
 
    /**
     *  Add seconds to date
@@ -181,7 +186,11 @@ extension Date {
     }
     
     /**
-     *
+     * Return the differece in days beetween two dates
+     * 
+     * @param anotherDate target date to compare
+     * 
+     * @return The differece in days
      */
     public func differecesDay(_ anotherDate:Date) -> Int {
 
@@ -255,6 +264,76 @@ extension Date {
         self.init(timeIntervalSinceNow:date.timeIntervalSinceNow)
 
     }
+    
+    
+    
+    
+    // MARK: Custom formatter
+    
+    /// locale
+    public var locale:Locale? {
+        get {
+            
+            if let storage = Date.associationMap.object(forKey: Keys.Locale) {
+                return (storage as! RMEObject).object as? Locale
+            }
+            return nil
+        }
+        set {
+            if newValue != nil {
+                Date.associationMap.setObject(RMEObject(newValue!), forKey: Keys.Locale)
+            }
+        }
+    }
+    
+    /// @return day of month
+    public var day:Int {
+        get {
+            return Calendar.current.component(Calendar.Component.day, from: self)
+        }
+    }
+    
+    /// @return month of year
+    public var month:Int {
+        get {
+            return Calendar.current.component(Calendar.Component.month, from: self)
+        }
+    }
+    
+    /// @return year of date
+    public var year:Int {
+        get {
+            return Calendar.current.component(Calendar.Component.year, from: self)
+        }
+    }
+    
+    /// @return day of week
+    public var weekDay:Int {
+        get {
+            return Calendar.current.component(Calendar.Component.weekday, from: self)
+        }
+    }
+    
+    /// @return day of week symbol
+    public var weekDayString:String {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = self.locale
+            return dateFormatter.weekdaySymbols[self.weekDay - 1].capitalized
+        }
+    }
+    
+    /// @return month of year symbol
+    public var monthString:String {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = self.locale
+            return dateFormatter.monthSymbols[self.month].capitalized
+        }
+    }
+    
+    
+    
 
     // MARK: Private
     fileprivate func addTime(year:Int, month:Int, hour:Int, minute:Int, second:Int) -> Date {

@@ -50,4 +50,40 @@ extension Tests {
         let birthDateTimeInterval:Int64 = 560660400000
         XCTAssert(birthDateTimeInterval == self.birthDate()!.timeInterval(), "time interval is not valid!")
     }
+    
+    func testCustomFormatters() {
+        
+        var now = Date()
+        
+        /* Formatters */
+        
+        // EEEE, MMMM d, yyyy
+        print("\(now.weekDayString), \(now.monthString) \(now.day), \(now.year)")
+        
+        // MM/dd/yyyy
+        print("\(now.month)/\(now.day)/\(now.year)")
+        
+        
+        
+        
+        /* change Locale */
+        now.locale = Locale(identifier: "pt-BR")
+        
+        print("\(now.weekDayString), \(now.day) de \(now.monthString) de \(now.year)")
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
