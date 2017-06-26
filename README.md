@@ -90,6 +90,27 @@ let birthDate = Date(year: 1987, month: 10, day: 08)
 print(birthDate.toString("yyyy/MM/dd"))
 ```
 
+
+Custom formatter dates
+```swift
+var now = Date()
+        
+/* Formatters */
+                
+// EEEE, MMMM d, yyyy        
+print("\(now.weekDayString), \(now.monthString) \(now.day), \(now.year)")
+                
+// MM/dd/yyyy       
+print("\(now.month)/\(now.day)/\(now.year)")
+        
+        
+        
+/* change Locale */        
+now.locale = Locale(identifier: "pt-BR")
+                
+print("\(now.weekDayString), \(now.day) de \(now.monthString) de \(now.year)")
+```
+
 #### NSURLConnection
 
 Check if internet is connected
