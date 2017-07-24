@@ -328,7 +328,7 @@ extension Date {
         get {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = self.locale
-            return dateFormatter.monthSymbols[self.month].capitalized
+            return dateFormatter.monthSymbols[self.month - 1].capitalized
         }
     }
     
