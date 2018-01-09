@@ -1,5 +1,5 @@
 //
-//  UIDevice.swift
+//  UIApplication.swift
 //  RMExtensionKit
 //
 //  Created by Rondinelli Morais on 20/04/16.
@@ -13,9 +13,9 @@ extension UIApplication {
     public func call(_ phoneNumber:String, showPrompt:Bool? = true) {
         
         if showPrompt! {
-            self.openURL(URL(string: "telprompt://\(phoneNumber)")!)
+            self.open(URL(string: "telprompt://\(phoneNumber)")!, options: [:], completionHandler: nil)
             return
         }
-        self.openURL(URL(string: "tel://\(phoneNumber)")!)
+        self.open(URL(string: "tel://\(phoneNumber)")!, options: [:], completionHandler: nil)
     }
 }
