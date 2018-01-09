@@ -21,7 +21,7 @@ class UIColorSampleViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(changeHEXColor), userInfo: nil, repeats: true)
     }
     
-    internal func changeRGBAColor(){
+    @objc internal func changeRGBAColor(){
         UIView.animate(withDuration: 1.0) {
             self.boxView.backgroundColor = UIColor.random()
             self.opacityTextLabel.text = String(format: "Opacity %.2f", self.boxView.backgroundColor!.cgColor.alpha)
@@ -30,7 +30,7 @@ class UIColorSampleViewController: UIViewController {
         }
     }
     
-    internal func changeHEXColor() {
+    @objc internal func changeHEXColor() {
         
         let hexDecimalString = randomAlphaNumericString(length: 6).uppercased()
         self.hexdecimalTextLabel.text = "#\(hexDecimalString)"
@@ -45,7 +45,7 @@ class UIColorSampleViewController: UIViewController {
     
     private func randomAlphaNumericString(length: Int) -> String {
         let allowedChars = "abcdef0123456789"
-        let allowedCharsCount = UInt32(allowedChars.characters.count)
+        let allowedCharsCount = UInt32(allowedChars.count)
         var randomString = ""
         
         for _ in 0..<length {

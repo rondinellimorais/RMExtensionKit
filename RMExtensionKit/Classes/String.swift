@@ -11,7 +11,9 @@ import UIKit
 extension String {
     
     public static var empty:String { get { return "" }}
-    public var length:Int { get { return self.characters.count }}
+    
+    @available(*, deprecated: 1.4.0, message: "Please use String.count directly")
+    public var length:Int { get { return self.utf8.count }}
     
     public func allowCharacters(_ characteres:String) -> String {
         let invertedSet = CharacterSet(charactersIn: characteres).inverted
@@ -19,18 +21,18 @@ extension String {
     }
     
     public func trunc(_ length:Int) -> String {
-        return NSString(string: self).substring( to: min(length, self.characters.count) )
+        return NSString(string: self).substring( to: min(length, self.count) )
     }
     
     public func toArray() -> [Character]? {
         var characters:[Character] = []
-        for c in self.characters {
+        for c in self {
             characters.append(c)
         }
         return characters
     }
     
-    public func substring(start:Int, end:Int) -> String {
+    public func substring(_ start:Int, _ end:Int) -> String {
         let chars = self.toArray()!
         let result:NSMutableString = NSMutableString()
         var endIndex = end
@@ -46,7 +48,7 @@ extension String {
     
     public func test(_ regex: String!) -> Bool {
         let expression = try! NSRegularExpression(pattern:regex, options: [.caseInsensitive])
-        return expression.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, characters.count)) != nil
+        return expression.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count)) != nil
     }
     
     public func encodeURIComponent() -> String? {
@@ -57,19 +59,19 @@ extension String {
     
     public func toHTML() -> NSAttributedString? {
         do {
-            
+
             let attrStr = try NSAttributedString(
                 data: self.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                options: [.documentType : NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             return attrStr
         } catch {}
         return nil
     }
     
-    public func replace(_ pattern:String, newValue:String, options:NSRegularExpression.Options? = NSRegularExpression.Options.caseInsensitive) -> String? {
+    public func replace(_ pattern:String, _ newValue:String, _ options:NSRegularExpression.Options? = NSRegularExpression.Options.caseInsensitive) -> String? {
         let regex = try! NSRegularExpression(pattern: pattern, options: options!)
-        let range = NSMakeRange(0, self.characters.count)
+        let range = NSMakeRange(0, self.count)
         return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: newValue)
     }
     
@@ -89,7 +91,7 @@ extension String {
     // options: Global, no-literal, case insensitive
     public func matchesForRegex(_ regex: String!, options:NSRegularExpression.Options? = NSRegularExpression.Options.caseInsensitive) -> [String] {
         let expression = try! NSRegularExpression(pattern: regex, options: options!)
-        let results = expression.matches(in: self as String, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.length))
+        let results = expression.matches(in: self as String, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count))
         return results.map() {
             (self as NSString).substring(with: $0.range)
         }

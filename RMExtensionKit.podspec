@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RMExtensionKit'
-  s.version          = '1.3.2'
+  s.version          = '1.4.0'
   s.summary          = 'Extension methods which simplifies the use of Cocoa classes iOS / OSX.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ The RMExtensionKit is simple framework that contains any extension methods which
   s.source           = { :git => 'https://github.com/rondinellimorais/RMExtensionKit.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/rondmorais'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'RMExtensionKit/Classes/**/*'
 

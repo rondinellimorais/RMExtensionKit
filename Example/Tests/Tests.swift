@@ -73,6 +73,40 @@ extension Tests {
     }
 }
 
+// ==============================
+// String Test
+// ==============================
+// MARK: String Test
+extension Tests {
+    
+    func testArrayString(){
+        let name:String = "Rondinelli Morais"
+        
+        let array = name.toArray()
+        
+        XCTAssert(array != nil, "Array String is not valid")
+        
+        XCTAssert(name.toArray()?.count == 17, "Array String not contains a valid length")
+    }
+    
+    func testStringRegex(){
+        let email:String = "rondinellimorais@gmail.com"
+        
+        let emailRegex = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$"
+        
+        XCTAssert(email.test(emailRegex), "String regex is not working!")
+    }
+    
+    func testStringTrunc(){
+        
+        let name:String = "Rondinelli"
+        
+        let trunced = name.trunc(4)
+
+        XCTAssert(trunced == "Rond", "String trunc is not working!")
+    }
+}
+
 
 
 

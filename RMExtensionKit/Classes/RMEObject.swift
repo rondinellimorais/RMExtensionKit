@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class RMEObject : AnyObject {
+internal class RMEObject {
     
     var object:Any?
     
